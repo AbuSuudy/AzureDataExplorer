@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AzureDataExplorer": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "KUSTO_URI": "",
+        "TENANT_ID": "",
+        "KUSTO_INGEST": ""
+      }
+    }
+  }
+}

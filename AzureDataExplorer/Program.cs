@@ -5,16 +5,16 @@
         static async Task Main(string[] args)
         {
 
-            if (!ADXDAL.CheckIfTableExist())
+            if (!ADXAccess.CheckIfTableExist())
             {
-                await ADXDAL.CreateTable();
-                await ADXDAL.IngestionMapping();
-                await ADXDAL.Batching();
+                await ADXAccess.CreateTable();
+                await ADXAccess.IngestionMapping();
+                await ADXAccess.Batching();
             }
             else
             {
-                ADXDAL.RowCount();
-                ADXDAL.StormEventsData();
+                ADXAccess.RowCount();
+                ADXAccess.StormEventsData();
             }
 
         }

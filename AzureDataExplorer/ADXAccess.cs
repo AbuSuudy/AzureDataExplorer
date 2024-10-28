@@ -7,7 +7,7 @@ using System.Data;
 
 namespace AzureDataExplorer
 {
-    internal class ADXDAL
+    internal class ADXAccess
     {
         private readonly static string kustoUri = Environment.GetEnvironmentVariable("KUSTO_URI");
         private readonly static string ingestUri = Environment.GetEnvironmentVariable("KUSTO_INGEST");         

@@ -161,11 +161,11 @@ namespace AzureDataExplorer
             {
 
                 string query = @"StormEvents
-                         | where EventType == 'Tornado'
-                         | extend TotalDamage = DamageProperty + DamageCrops
-                         | summarize DailyDamage=sum(TotalDamage) by State, bin(StartTime, 1d)
-                         | where DailyDamage > 100000000
-                         | order by DailyDamage desc";
+                        | where EventType == 'Heavy Rain'
+                        | extend TotalDamage = DamageProperty + DamageCrops
+                        | summarize DailyDamage=sum(TotalDamage) by State, bin(StartTime, 1d)
+                        | where DailyDamage > 1000000
+                        | order by DailyDamage desc";
 
                 using (IDataReader response = kustoClient.ExecuteQuery(databaseName, query, null))
                 {
@@ -174,7 +174,7 @@ namespace AzureDataExplorer
                     int columnNoState = response.GetOrdinal("State");
                     int columnNoDailyDamage = response.GetOrdinal("DailyDamage");
 
-                    Console.WriteLine("Daily tornado damages over 100,000,000$:");
+                    Console.WriteLine("Heavy Rain damages over $1,000,000:");
 
                     while (response.Read())
                     {
